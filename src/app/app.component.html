@@ -1,0 +1,170 @@
+<!-- Row - Row template -->
+<!-- <ejs-treegrid [dataSource]="data" width="auto" height="580" childMapping="Children">
+  <e-columns>
+    <e-column field="EmpID" headerText="Employee ID" width="180"></e-column>
+    <e-column field="Name" headerText="Employee Name" width="150"></e-column>
+    <e-column field="DOB" headerText="Date of Birth" width="150"  format="yMd"></e-column>
+    <e-column
+      field="Address"
+      headerText="Employee Details"
+      width="350"
+    ></e-column>
+  </e-columns>
+  <ng-template #rowTemplate let-data>
+    <tr>
+      <td class="border" style="padding-left:18px;">
+        <div>{{ data.EmpID }}</div>
+      </td>
+      <td class="border" style="padding: 10px 0px 0px 20px;">
+        <div style="font-size:14px;">
+          {{ data.Name }}
+          <p style="font-size:9px;">{{ data.Designation }}</p>
+        </div>
+      </td>
+      <td class="border" style="padding-left: 20px;">
+        <div>{{ format( data.DOB ) }}</div>
+      </td>
+      <td class="border">
+        <div>
+          <div style="position:relative;display:inline-block;">
+            <img
+              src="https://ej2.syncfusion.com/angular/demos/assets/treegrid/images/{{
+                data.FullName
+              }}.png"
+              alt="{{ data.FullName }}"
+            />
+          </div>
+          <div style="display:inline-block;">
+            <div style="padding:5px;">{{ data.Address }}</div>
+            <div style="padding:5px;">{{ data.Country }}</div>
+            <div style="padding:5px;font-size:12px;">{{ data.Contact }}</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</ejs-treegrid> -->
+
+<!-- Row - Detail template -->
+<!-- <ejs-treegrid [dataSource]="data" width="auto" height="580" childMapping="Children">
+  <e-columns>
+    <e-column field="Name" headerText="First Name" width="160"></e-column>
+    <e-column
+      field="DOB"
+      headerText="Date of Birth"
+      width="150"
+      type="date"
+      format="yMd"
+    ></e-column>
+    <e-column
+      field="Designation"
+      headerText="Designation"
+      width="180"
+    ></e-column>
+    <e-column field="Country" headerText="Country" width="148"></e-column>
+  </e-columns>
+  <ng-template #detailTemplate let-data>
+    <div>
+      <div class="imageAlignment">
+        <img
+          src="https://ej2.syncfusion.com/angular/demos/assets/treegrid/images/{{
+            data.FullName
+          }}.png"
+          alt="{{ data.FullName }}"
+        />
+      </div>
+      <div class="descriptionAlignment">
+        <div style="word-wrap: break-word;">
+          <b>{{ data.Name }}</b> was born on {{ format(data.DOB) }}. Now lives
+          at {{ data.Address }}, {{ data.Country }}. {{ data.Name }} holds a
+          position of <b>{{ data.Designation }}</b> in our WA department,
+          (Seattle USA).
+        </div>
+        <div style="word-wrap: break-word;margin-top:5px;">
+          <b style="margin-right:10px;">Contact:</b>{{ data.Contact }}
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ejs-treegrid> -->
+
+<!-- Column template  -->
+<!-- <ejs-treegrid
+  [dataSource]="data"
+  width="auto"
+  height="610"
+  childMapping="Children"
+>
+  <e-columns>
+    <e-column headerText="Employee Image" width="150">
+      <ng-template #template let-data>
+        <img
+          src="https://ej2.syncfusion.com/angular/demos/assets/treegrid/images/{{
+            data.FullName
+          }}.png"
+          alt="{{ data.EmpID }}"
+        />
+      </ng-template>
+    </e-column>
+    <e-column field="Name" headerText="Employee Name" width="150"></e-column>
+    <e-column
+      field="DOB"
+      headerText="Date of Birth"
+      width="150"
+      format="yMd"
+    ></e-column>
+    <e-column
+      field="Designation"
+      headerText="Designation"
+      width="180"
+    ></e-column>
+    <e-column field="Country" headerText="Country" width="148"></e-column>
+  </e-columns>
+</ejs-treegrid>-->
+
+<!-- Column rendering based on Conditional template and ValueAccessor -->
+<ejs-treegrid
+  [dataSource]="data"
+  [treeColumnIndex]="1"
+  childMapping="subtasks"
+  height="610"
+>
+  <e-columns>
+    <e-column
+      field="taskID"
+      headerText="Task ID"
+      textAlign="Right"
+      width="90"
+    ></e-column>
+    <e-column
+      field="taskName"
+      headerText="Task Name"
+      textAlign="Left"
+      width="180"
+    ></e-column>
+    <e-column
+      field="startDate"
+      headerText="Start Date"
+      textAlign="Right"
+      format="yMd"
+      width="90"
+    ></e-column>
+    <e-column headerText="Approved" width="150" textAlign="Center">
+      <ng-template #template let-data>
+        <div *ngIf="data.approved; else elseblock">
+          <input type="checkbox" checked />
+        </div>
+      </ng-template>
+      <ng-template #elseblock>
+        <input type="checkbox" />
+      </ng-template>
+    </e-column>
+    <e-column
+      field="progress"
+      headerText="Progress"
+      textAlign="Right"
+      width="80"
+      [valueAccessor]="percentageFormatter"
+    ></e-column>
+  </e-columns>
+</ejs-treegrid>

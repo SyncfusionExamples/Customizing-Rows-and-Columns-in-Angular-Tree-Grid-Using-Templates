@@ -1,0 +1,28 @@
+@import 'https://cdn.syncfusion.com/ej2/17.3.27/material.css';
+.border {
+  border: 1px solid #e0e0e0;
+  border-width: 1px 0px 0px 0px;
+}
+img {
+  width: 60px;
+  height: 60px;
+  vertical-align: baseline;
+  border-radius: 50px;
+  margin-left: 20px;
+  background-repeat: no-repeat;
+}
+.imageAlignment {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  width: 10%;
+  padding: 5px 4px 2px 27px;
+}
+.descriptionAlignment {
+  padding-left: 10px;
+  display: inline-block;
+  width: 66%;
+  overflow-wrap: normal;
+  font-size: 13px;
+  font-family: 'Segoe UI';
+}
