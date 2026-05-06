@@ -5,6 +5,7 @@ import { Internationalization } from '@syncfusion/ej2-base';
 var I18n: Internationalization = new Internationalization();
 
 @Component({
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
