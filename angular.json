@@ -18,14 +18,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -64,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "getting-started:build"
+            "buildTarget": "getting-started:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "getting-started:build:production"
+              "buildTarget": "getting-started:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "getting-started:build"
+            "buildTarget": "getting-started:build"
           }
         },
         "test": {
@@ -90,8 +89,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -124,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "getting-started"
+  "defaultProject": "getting-started",
+  "cli": {
+    "analytics": "0fe51e98-4163-4afa-b864-273cd7f853ee"
+  }
 }
